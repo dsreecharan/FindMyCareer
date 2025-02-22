@@ -1,0 +1,24 @@
+.college-recommendations {
+  padding: 2rem;
+}
+
+.colleges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.college-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.college-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ... rest of your existing styles ... */ 

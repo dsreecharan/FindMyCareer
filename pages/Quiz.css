@@ -1,0 +1,167 @@
+.quiz-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.quiz-header {
+  margin-bottom: 3rem;
+}
+
+.progress-wrapper {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.step-number {
+  font-weight: bold;
+  color: #3498db;
+}
+
+.step-total {
+  color: #666;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+  border-radius: 4px;
+  position: relative;
+  transition: width 0.5s ease;
+}
+
+.progress-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: glow 2s linear infinite;
+}
+
+.question-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.question-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.option-button {
+  background: white;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.option-content {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option-text {
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.selection-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #eee;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.option-button.selected {
+  border-color: #3498db;
+  background: linear-gradient(45deg, #3498db0f, #2ecc710f);
+}
+
+.option-button.selected .selection-indicator {
+  background: #3498db;
+  border-color: #3498db;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.nav-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-button.next {
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+  color: white;
+}
+
+.nav-button.back {
+  background: white;
+  border: 2px solid #eee;
+  color: #666;
+}
+
+@keyframes glow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .question-section {
+    padding: 1.5rem;
+  }
+
+  .nav-button {
+    padding: 0.8rem 1.5rem;
+  }
+} 
