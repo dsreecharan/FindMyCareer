@@ -14,7 +14,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-brand">
         <Link to="/">
-          <span className="brand-text">Findia</span>
+          <span className="brand-text">FindMyCareer</span>
           <span className="brand-dot">.</span>
         </Link>
       </div>
