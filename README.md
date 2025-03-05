@@ -1,7 +1,133 @@
 # FindMyCareer
-AI-Powered Career Path Finder for Students.
 
+An AI-powered career recommendation platform that helps students discover their ideal career path through psychological assessments and personalized recommendations.
 
-As students in Grade 10, Intermediate (+1/+2), or Pre-University levels approach critical decisions about their future, choosing the right career path can be overwhelming. With the vast number of career options available, many students struggle to understand their own strengths, interests, and how they align with potential professions. The lack of personalized career guidance tailored to individual psychological profiles and preferences often leads to confusion and indecision.
+## Features
 
-FindMyCareer is an AI-powered web application designed to assist students in identifying the most suitable career paths based on their psychological assessments, skills, and personal interests. Through a series of insightful questions, the application analyzes the student's personality and provides data-driven recommendations for career trajectories that best align with their unique attributes. Additionally, FindMyCareer will offer detailed information on the educational requirements for each career, the necessary subjects to focus on, and guidance on relevant college applications or entrance exams. This platform aims to empower students to make well-informed, confident decisions about their future, providing them with personalized, actionable guidance every step of the way.
+- 🤖 AI-powered career recommendations based on psychological assessments
+- 🎨 Modern, responsive UI with dark/light mode
+- 🔐 Secure user authentication
+- 📊 Comprehensive career assessment system
+- 👨‍👩‍👧‍👦 Parent counseling integration
+- 📱 Mobile-first, responsive design
+- 🎮 Gamified user experience
+- 📚 Entrance exam guides
+- 👨‍💼 Admin dashboard
+
+## Tech Stack
+
+### Frontend
+
+- HTML5
+- CSS3 (Tailwind CSS)
+- JavaScript (ES6+)
+- React.js
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+### AI/ML
+
+- Decision Trees
+- Natural Language Processing
+- Rule-Based AI System
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/FindMyCareer.git
+cd FindMyCareer
+```
+
+2. Install dependencies
+
+```bash
+# Install backend dependencies
+cd backend
+npm install
+
+# Install frontend dependencies
+cd ../frontend
+npm install
+```
+
+3. Set up environment variables
+
+```bash
+# Backend (.env)
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+PORT=5000
+
+# Frontend (.env)
+REACT_APP_API_URL=http://localhost:5000
+```
+
+4. Start the development servers
+
+```bash
+# Start backend server
+cd backend
+npm run dev
+
+# Start frontend server
+cd frontend
+npm start
+```
+
+## Project Structure
+
+```
+FindMyCareer/
+├── frontend/                 # React frontend application
+│   ├── public/              # Static files
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/          # Page components
+│   │   ├── context/        # React context providers
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── services/       # API services
+│   │   └── utils/          # Utility functions
+│   └── package.json
+│
+├── backend/                 # Node.js backend application
+│   ├── config/             # Configuration files
+│   ├── controllers/        # Route controllers
+│   ├── models/             # MongoDB models
+│   ├── routes/             # API routes
+│   ├── services/           # Business logic
+│   ├── utils/              # Utility functions
+│   └── package.json
+│
+└── README.md
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Thanks to all contributors who have helped shape FindMyCareer
+- Special thanks to the open-source community for the amazing tools and libraries
