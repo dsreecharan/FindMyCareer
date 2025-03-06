@@ -1,18 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const assessmentController = require('../controllers/assessment.controller');
-const authMiddleware = require('../middleware/auth.middleware');
+const { verifyToken } = require('../middleware/auth.middleware');
+
+// Apply auth middleware to all routes
+router.use(verifyToken);
 
 // Get assessment questions
-router.get('/questions', authMiddleware.verifyToken, assessmentController.getQuestions);
+router.get('/questions', assessmentController.getQuestions);
 
-// Submit assessment answers
-router.post('/submit', authMiddleware.verifyToken, assessmentController.submitAssessment);
+// Submit assessment
+router.post('/submit', assessmentController.submitAssessment);
+
+// Get assessment history
+router.get('/history', assessmentController.getAssessmentHistory);
 
 // Get assessment results
-router.get('/results', authMiddleware.verifyToken, assessmentController.getResults);
+router.get('/results', assessmentController.getResults);
 
-// Get detailed career information
-router.get('/career/:careerId', authMiddleware.verifyToken, assessmentController.getCareerDetails);
+// Get career details
+router.get('/career/:careerId', assessmentController.getCareerDetails);
 
 module.exports = router; 

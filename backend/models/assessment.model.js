@@ -49,36 +49,23 @@ const assessmentResultSchema = new mongoose.Schema({
       required: true,
     },
   }],
-  personalityTraits: [{
-    trait: String,
-    score: Number,
-  }],
-  skillLevels: [{
-    skill: String,
-    level: Number,
-  }],
-  interests: [{
-    category: String,
-    score: Number,
-  }],
-  values: [{
-    value: String,
-    importance: Number,
-  }],
-  recommendedCareers: [{
-    career: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Career',
-      required: true,
-    },
-    matchScore: {
-      type: Number,
-      required: true,
-      min: 0,
-      max: 100,
-    },
-    reasons: [String],
-  }],
+  aiEvaluation: {
+    careerPaths: [{
+      type: String
+    }],
+    strengths: [{
+      type: String
+    }],
+    developmentAreas: [{
+      type: String
+    }],
+    nextSteps: [{
+      type: String
+    }]
+  },
+  rawAIResponse: {
+    type: String
+  },
   completedAt: {
     type: Date,
     default: Date.now,

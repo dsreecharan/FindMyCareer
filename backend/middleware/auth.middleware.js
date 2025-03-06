@@ -2,24 +2,27 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
 // Verify JWT token
-exports.verifyToken = async (req, res, next) => {
+const verifyToken = async (req, res, next) => {
   try {
+    // Get token from header
     const token = req.header('Authorization')?.replace('Bearer ', '');
     
     if (!token) {
       return res.status(401).json({
         success: false,
-        message: 'No token, authorization denied',
+        message: 'No token, authorization denied'
       });
     }
 
+    // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+    // Get user from token
     const user = await User.findById(decoded.userId).select('-password');
-
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'User not found',
+        message: 'User not found'
       });
     }
 
@@ -30,18 +33,20 @@ exports.verifyToken = async (req, res, next) => {
       });
     }
 
-    req.user = decoded;
+    // Add user to request
+    req.user = user;
     next();
   } catch (error) {
+    console.error('Auth middleware error:', error);
     res.status(401).json({
       success: false,
-      message: 'Token is not valid',
+      message: 'Token is not valid'
     });
   }
 };
 
 // Check if user is admin
-exports.isAdmin = async (req, res, next) => {
+const isAdmin = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.userId);
     
@@ -62,7 +67,7 @@ exports.isAdmin = async (req, res, next) => {
 };
 
 // Check if user is counselor
-exports.isCounselor = async (req, res, next) => {
+const isCounselor = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.userId);
     
@@ -83,7 +88,7 @@ exports.isCounselor = async (req, res, next) => {
 };
 
 // Check if user is student
-exports.isStudent = async (req, res, next) => {
+const isStudent = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.userId);
     
@@ -101,4 +106,11 @@ exports.isStudent = async (req, res, next) => {
       message: 'Error checking student status',
     });
   }
+};
+
+module.exports = {
+  verifyToken,
+  isAdmin,
+  isCounselor,
+  isStudent
 }; 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import ConsentForm from '../../components/ConsentForm';
+import AIAnalysisLoading from '../../components/AIAnalysisLoading';
 
 const Assessment = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -8,23 +10,41 @@ const Assessment = () => {
   const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [error, setError] = useState(null);
+  const [showConsent, setShowConsent] = useState(true);
+  const [showAIAnalysis, setShowAIAnalysis] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get('/api/assessment/questions');
-        setQuestions(response.data.questions);
-        setLoading(false);
+        setLoading(true);
+        setError(null);
+        const response = await axios.get('http://localhost:5001/api/assessment/questions', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.data.success && Array.isArray(response.data.questions)) {
+          setQuestions(response.data.questions);
+        } else {
+          throw new Error('Invalid response format from server');
+        }
       } catch (error) {
         console.error('Error fetching questions:', error);
-        setError('Failed to load questions. Please try again later.');
+        setError(error.response?.data?.message || 'Failed to load questions. Please try again later.');
+        setQuestions([]);
+      } finally {
         setLoading(false);
       }
     };
 
     fetchQuestions();
   }, []);
+
+  const handleConsent = () => {
+    setShowConsent(false);
+  };
 
   const handleAnswer = (questionId, selectedOption) => {
     setAnswers(prev => ({
@@ -46,23 +66,50 @@ const Assessment = () => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
     try {
+      setShowAIAnalysis(true);
+      setLoading(true);
+      setError(null);
+      
       // Format answers for submission
       const formattedAnswers = Object.entries(answers).map(([questionId, selectedOption]) => ({
         questionId,
-        selectedOption
+        selectedOption: selectedOption // This is already the text of the selected option
       }));
 
-      const response = await axios.post('/api/assessment/submit', { answers: formattedAnswers });
-      navigate('/assessment/results', { state: { results: response.data } });
+      console.log('Submitting answers:', formattedAnswers);
+
+      const response = await axios.post('http://localhost:5001/api/assessment/submit', 
+        { answers: formattedAnswers },
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      );
+
+      if (response.data.success) {
+        console.log('Navigating to results with:', response.data.result);
+        navigate('/assessment/results', { state: { results: response.data.result } });
+      } else {
+        throw new Error(response.data.message || 'Failed to submit assessment');
+      }
     } catch (error) {
       console.error('Error submitting assessment:', error);
-      setError('Failed to submit assessment. Please try again.');
+      setError(error.response?.data?.message || 'Failed to submit assessment. Please try again.');
+      setShowAIAnalysis(false);
     } finally {
       setLoading(false);
     }
   };
+
+  if (showConsent) {
+    return <ConsentForm onConsent={handleConsent} />;
+  }
+
+  if (showAIAnalysis) {
+    return <AIAnalysisLoading />;
+  }
 
   if (loading) {
     return (
@@ -91,17 +138,39 @@ const Assessment = () => {
     );
   }
 
-  if (questions.length === 0) {
+  if (!questions || questions.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600 dark:text-gray-400">No questions available.</p>
+          <p className="text-gray-600 dark:text-gray-400">No questions available. Please try again later.</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+          >
+            Refresh
+          </button>
         </div>
       </div>
     );
   }
 
   const currentQuestionData = questions[currentQuestion];
+
+  if (!currentQuestionData) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 dark:text-red-400">Error loading question data</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">

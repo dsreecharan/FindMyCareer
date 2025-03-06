@@ -173,24 +173,33 @@ exports.login = async (req, res) => {
 // Get user profile
 exports.getProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.userId).select('-password');
+    const userId = req.user._id;
+    const user = await User.findById(userId).select('-password');
+    
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: 'User not found',
+        message: 'User not found'
       });
     }
 
     res.json({
       success: true,
-      user,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        assessmentHistory: user.assessmentHistory,
+        createdAt: user.createdAt
+      }
     });
   } catch (error) {
-    console.error('Get profile error:', error);
+    console.error('Error fetching user profile:', error);
     res.status(500).json({
       success: false,
-      message: 'Error fetching profile',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      message: 'Error fetching user profile',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 };
