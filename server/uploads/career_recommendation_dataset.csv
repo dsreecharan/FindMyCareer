@@ -1,0 +1,11 @@
+careerId,careerTitle,analyticalThreshold,analyticalWeight,creativeThreshold,creativeWeight,socialThreshold,socialWeight,structuredThreshold,structuredWeight
+1,Software Developer,7,2,5,1,4,1,6,1.5
+2,Doctor,6,1,4,1,8,2,7,1.5
+3,Teacher,5,1,6,1.5,9,2,7,1.5
+4,Artist,4,1,9,2,5,1,3,0.5
+5,Business Analyst,7,1.5,5,1,7,1.5,8,2
+6,Environmental Scientist,7,1.5,5,1,5,1,6,1.5
+7,Mechanical Engineer,8,2,6,1,4,1,7,1.5
+8,Psychologist,6,1.5,5,1,9,2,5,1
+9,Financial Analyst,8,2,4,0.5,5,1,8,2
+10,Architect,7,1.5,8,2,5,1,6,1 

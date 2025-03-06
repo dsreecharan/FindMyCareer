@@ -1,194 +1,192 @@
-# FindMyCareer - AI-Powered Career Guidance Platform
+# FindMyCareer
 
-FindMyCareer is a comprehensive career guidance platform that uses AI to provide personalized career recommendations, college suggestions, and educational path planning. The platform helps students make informed decisions about their future careers and education.
+FindMyCareer is a comprehensive web application designed to help Grade 9-12 students identify suitable career paths through a psychological & scenario-based test, and provide guidance on colleges, entrance exams, eligibility criteria, and application processes.
 
-## Features
+## Features Implemented
 
-- 🤖 **AI-Powered Career Assessment**
-  - Personality trait analysis
-  - Skills and interests evaluation
-  - Values and preferences assessment
-  - Personalized career recommendations
+### 1. User Authentication
+- ✅ JWT-based login & registration
+- ✅ User profiles with test history & saved careers
+- ✅ Secure password hashing with bcrypt
+- ✅ Protected routes for authenticated users
 
-- 🎓 **College Recommendations**
-  - Government institutions
-  - Private universities
-  - International universities
-  - Course-specific recommendations
-  - Admission requirements and deadlines
+### 2. Career Test
+- ✅ 15 psychological & scenario-based questions
+- ✅ Weighted scoring system (analytical, creative, structured, social)
+- ✅ Real-time progress tracking
+- ✅ Ability to navigate back and review answers
+- ✅ Test history saved to user profile
 
-- 📊 **Detailed Analysis**
-  - Personality profile visualization
-  - Career match scores
-  - Strengths and development areas
-  - Actionable next steps
+### 3. Career Recommendation System
+- ✅ Evaluation using career_recommendation_dataset.csv
+- ✅ Categorization based on score ranges:
+  - Engineering & Technology (50-60 points)
+  - Creative & Design (40-49 points)
+  - Business & Management (30-39 points)
+  - Social & Psychology (15-29 points)
+- ✅ Detailed career profiles including:
+  - Career summary and description
+  - Required skills and personality traits
+  - Education requirements
+  - Job outlook and average salary
+  - Top colleges and locations
+  - Entrance exams & eligibility criteria
+  - Application process & deadlines
 
-- 👥 **Career Counseling**
-  - Schedule counseling sessions
-  - Expert guidance
-  - Personalized advice
-  - Career path planning
+### 4. Dashboard
+- ✅ View past test results with dates and scores
+- ✅ Save and unsave preferred careers
+- ✅ Display career recommendations
+- ✅ View detailed career information
+- ✅ Compare different career options
+
+### 5. Modern UI & Styling
+- ✅ 3D Background using React Three Fiber
+- ✅ Dark & Light Mode Toggle
+- ✅ Animated UI with Framer Motion
+- ✅ Responsive design with Tailwind CSS
+- ✅ ShadCN UI components for clean interfaces
 
 ## Tech Stack
 
-- **Frontend**
-  - React.js
-  - Material-UI
-  - TailwindCSS
-  - Axios
+### Frontend:
+- **Next.js 14**: for performance optimization and server components
+- **React.js**: for dynamic user interface
+- **React Three Fiber**: for 3D interactive background
+- **Tailwind CSS**: for modern, responsive styling
+- **Framer Motion**: for smooth animations and transitions
+- **ShadCN UI**: for clean, accessible components
+- **TypeScript**: for type safety and better developer experience
 
-- **Backend**
-  - Node.js
-  - Express.js
-  - MongoDB
-  - Ollama AI (deepseek-r1:8b model)
+### Backend:
+- **Node.js with Express.js**: for API handling
+- **MongoDB with Mongoose**: for user authentication and data storage
+- **JWT**: for secure authentication
+- **CSV Parsing**: to process career recommendations
+- **TypeScript**: for type safety and maintainability
 
-## Prerequisites
+## Getting Started
 
-- Node.js (v14 or higher)
-- MongoDB
-- Ollama (for AI features)
+### Prerequisites
+- Node.js 18.0.0 or later
+- MongoDB (local instance or Atlas)
 - npm or yarn
 
-## Quick Start
-
-The easiest way to get started is to use the provided `project.sh` script:
-
-1. Make the script executable:
-   ```bash
-   chmod +x project.sh
-   ```
-
-2. Run the script:
-   ```bash
-   ./project.sh
-   ```
-
-The script will:
-- Check for required dependencies
-- Set up environment variables
-- Start MongoDB
-- Launch the Ollama AI server
-- Start the backend server
-- Start the frontend development server
-- Open each service in a separate terminal window
-
-## Manual Installation
-
-If you prefer to set up the project manually:
+### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/FindMyCareer.git
-   cd FindMyCareer
+   git clone https://github.com/yourusername/findmycareer.git
+   cd findmycareer
    ```
 
-2. Install frontend dependencies:
+2. Set up the backend:
    ```bash
-   cd frontend
+   cd server
    npm install
+   # Create a .env file with necessary variables (see .env.example)
+   npm run setup-data # Set up initial career data and questions
+   npm run dev
    ```
 
-3. Install backend dependencies:
+3. Set up the frontend:
    ```bash
-   cd ../backend
+   cd my-app
    npm install
+   # Create a .env.local file with necessary variables
+   npm run dev
    ```
 
-4. Set up environment variables:
-   - Copy `.env.example` to `.env` in both frontend and backend directories
-   - Update the variables with your configuration
-
-## Configuration
-
-### Frontend Environment Variables
-```env
-PORT=3000
-REACT_APP_API_URL=http://localhost:5001
-NODE_OPTIONS=--max-old-space-size=8192
-```
-
-### Backend Environment Variables
-```env
-PORT=5001
-MONGODB_URI=mongodb://localhost:27017/findmycareer
-JWT_SECRET=your_jwt_secret
-NODE_ENV=development
-```
-
-## Running the Application Manually
-
-1. Start the Ollama AI server:
-   ```bash
-   ollama run deepseek-r1:8b
-   ```
-
-2. Start the backend server:
-   ```bash
-   cd backend
-   NODE_ENV=development DEBUG=true PORT=5001 nodemon --max-old-space-size=8192 server.js
-   ```
-
-3. Start the frontend development server:
-   ```bash
-   cd frontend
-   npm start
-   ```
-
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5001
-- Ollama AI: http://localhost:11434
-
-## Database Setup
-
-1. Populate assessment questions:
-   ```bash
-   cd backend
-   node scripts/seedQuestions.js
-   ```
-
-2. Populate college data:
-   ```bash
-   node scripts/populateColleges.js
-   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 ## Project Structure
 
 ```
-FindMyCareer/
-├── frontend/
-│   ├── public/
-│   │   ├── favicon.png
-│   │   └── index.html
+findmycareer/
+├── server/                     # Backend server
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── App.js
-│   └── package.json
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   ├── scripts/
-│   └── server.js
-├── icons/
-│   ├── favicon.png
-│   ├── fblogo.png
-│   ├── instalogo.jpg
-│   └── xlogo.png
-└── project.sh
+│   │   ├── controllers/        # API controllers
+│   │   ├── middleware/         # Express middleware
+│   │   ├── models/             # MongoDB models
+│   │   ├── routes/             # API routes
+│   │   ├── utils/              # Utility functions
+│   │   ├── scripts/            # Setup scripts
+│   │   └── index.ts            # Server entry point
+│   ├── uploads/                # Directory for uploaded data files
+│   │   ├── career_recommendation_dataset.csv
+│   │   └── master_career_dataset.csv
+│   └── .env                    # Environment variables
+│
+├── my-app/                     # Frontend Next.js app
+│   ├── public/                 # Static assets
+│   │   └── data/               # CSV datasets
+│   ├── src/
+│   │   ├── app/                # Next.js app router
+│   │   │   ├── career-test/    # Career test pages
+│   │   │   ├── careers/        # Career detail pages
+│   │   │   ├── dashboard/      # User dashboard
+│   │   │   ├── login/          # Authentication pages
+│   │   │   └── test-results/   # Test result pages
+│   │   ├── components/         # React components
+│   │   │   ├── 3d/             # 3D components
+│   │   │   ├── layout/         # Layout components
+│   │   │   ├── providers/      # Context providers
+│   │   │   └── ui/             # ShadCN UI components
+│   │   ├── hooks/              # Custom React hooks
+│   │   ├── lib/                # Utility libraries
+│   │   └── utils/              # Helper functions
+│   └── .env.local              # Environment variables
+│
+├── README.md                   # Project documentation
+├── .gitignore                  # Git ignore rules
+└── LICENSE                     # Project license
 ```
+
+## Datasets Used
+
+1. **career_recommendation_dataset.csv**: Maps personality scores to career paths
+2. **master_career_dataset.csv**: Contains detailed information about careers, including colleges, exams, and application processes
+
+## Advanced Features
+
+### 1. Test Result Analysis
+- Comprehensive score breakdown with percentage calculations
+- Personality profile visualization with progress bars
+- Tailored career recommendations based on individual scores
+
+### 2. Career Details Page
+- Tabbed interface for easy navigation
+- Detailed information sections for all career aspects
+- Bookmark functionality for saving careers of interest
+
+### 3. User Dashboard
+- Recent test history with score visualizations
+- Saved careers library
+- Personalized recommendations
+
+## Future Enhancements
+
+1. **Additional Features**:
+   - Career comparison tool
+   - Mentorship program integration
+   - Real-time chat with career counselors
+   - Alumni success stories
+
+2. **Performance Optimization**:
+   - Server-side rendering for better SEO
+   - API response caching
+   - Image optimization
+   - Mobile performance improvements
+
+3. **Content Expansion**:
+   - More career paths and specializations
+   - Video content about careers
+   - Industry trends and job market analysis
+   - Internship and scholarship opportunities
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
@@ -196,11 +194,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Material-UI for the beautiful components
-- Ollama for the AI capabilities
-- MongoDB for the database
-- All contributors and users of the platform
-
-## Support
-
-For support, email support@findmycareer.com or join our Slack channel.
+- Thanks to all contributors who have helped with the development of FindMyCareer
+- Special thanks to the educational institutions that provided data for the career recommendations
+- Additional gratitude to the various npm package maintainers that make this project possible 
