@@ -72,13 +72,62 @@ export default function CareerDetailsPage() {
 
         // Check if career is saved (if user is authenticated)
         if (isAuthenticated) {
-          const savedCareers = await userAPI.getSavedCareers();
-          const savedCareerIds = savedCareers.map((career: any) => career._id);
-          setIsSaved(savedCareerIds.includes(id));
+          try {
+            const savedCareers = await userAPI.getSavedCareers();
+            const savedCareerIds = savedCareers.map((career: any) => career._id);
+            setIsSaved(savedCareerIds.includes(id));
+          } catch (saveErr) {
+            console.error("Error checking saved status:", saveErr);
+            // Don't set error state for this secondary error
+          }
         }
       } catch (err: any) {
         console.error("Error fetching career details:", err);
-        setError(err.message || "Failed to load career details");
+        setError(err.message || 'Failed to load career details');
+        
+        // Add a fallback for predefined careers that might not be in the database
+        const predefinedCareerIds = ['software-engineering', 'medicine', 'law', 'business-management', 'design'];
+        
+        if (predefinedCareerIds.includes(id as string)) {
+          // Create a fallback career object
+          const careerTitle = (id as string)
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+            
+          const fallbackCareer = {
+            _id: id as string,
+            title: careerTitle,
+            description: `Career path in ${careerTitle}`,
+            skills: ['Technical Knowledge', 'Communication', 'Problem Solving'],
+            personalityTraits: ['Analytical', 'Creative', 'Detail-oriented'],
+            educationRequirements: ['Bachelor\'s degree in relevant field'],
+            jobOutlook: 'Growing field with many opportunities',
+            averageSalary: 'Varies by location and experience',
+            colleges: [
+              { name: 'Contact an advisor for specific college recommendations', location: '' }
+            ],
+            entranceExams: [
+              { name: 'Varies by institution' }
+            ],
+            eligibility: {
+              minGrade: 'Varies by institution',
+              subjects: ['Contact an advisor for specific requirements'],
+              requirements: ['Strong academic background']
+            },
+            applicationProcess: {
+              steps: ['Research programs', 'Prepare application materials', 'Submit applications', 'Interview if required'],
+              deadlines: ['Varies by institution'],
+              documents: ['Transcripts', 'Letters of recommendation', 'Personal statement']
+            },
+            relatedCareers: [],
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          };
+          
+          setCareer(fallbackCareer);
+          setError(null); // Clear error if we can provide fallback data
+        }
       } finally {
         setIsLoading(false);
       }

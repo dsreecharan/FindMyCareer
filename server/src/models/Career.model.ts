@@ -51,7 +51,7 @@ const CareerSchema: Schema = new Schema(
     },
     description: {
       type: String,
-      required: [true, 'Description is required'],
+      required: false,
     },
     skills: {
       type: [String],
@@ -67,11 +67,11 @@ const CareerSchema: Schema = new Schema(
     },
     jobOutlook: {
       type: String,
-      required: [true, 'Job outlook is required'],
+      required: false,
     },
     averageSalary: {
       type: String,
-      required: [true, 'Average salary is required'],
+      required: false,
     },
     colleges: [
       {

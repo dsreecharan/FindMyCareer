@@ -1,0 +1,440 @@
+[2025-03-06T23:49:50.342Z] Starting career detection from CSV files...
+[2025-03-06T23:49:50.347Z] Reading file from /Users/jayanthreddypothu/Desktop/FindMyCareer/server/uploads/master_career_dataset.csv
+[2025-03-06T23:49:50.350Z] Parsed 10 rows from CSV file
+[2025-03-06T23:49:50.351Z] Detected 0 unique careers: 
+[2025-03-06T23:49:50.351Z] Career data written to /Users/jayanthreddypothu/Desktop/FindMyCareer/server/data/careers.json
+[2025-03-06T23:49:50.351Z] Career detection completed successfully.
+[2025-03-06T23:49:50.351Z] Detected Careers: []
+[2025-03-06T23:50:41.563Z] Starting career detection from CSV files...
+[2025-03-06T23:50:41.568Z] Reading file from /Users/jayanthreddypothu/Desktop/FindMyCareer/server/uploads/master_career_dataset.csv
+[2025-03-06T23:50:41.570Z] Parsed 10 rows from CSV file
+[2025-03-06T23:50:41.571Z] Detected 10 unique careers: Software Developer, Doctor, Teacher, Artist, Business Analyst, Environmental Scientist, Mechanical Engineer, Psychologist, Financial Analyst, Architect
+[2025-03-06T23:50:41.571Z] Career data written to /Users/jayanthreddypothu/Desktop/FindMyCareer/server/data/careers.json
+[2025-03-06T23:50:41.571Z] Career detection completed successfully.
+[2025-03-06T23:50:41.571Z] Detected Careers: [
+  {
+    "title": "Software Developer",
+    "description": "Develops applications and systems that run on computers and other devices. Writes, tests, and maintains code to ensure functionality.",
+    "skills": [
+      "Programming languages (Java",
+      "Python",
+      "JavaScript",
+      "etc.)",
+      "problem-solving",
+      "analytical thinking",
+      "teamwork",
+      "communication"
+    ],
+    "averageSalary": "$110,000 - $150,000",
+    "colleges": [
+      {
+        "name": "MIT",
+        "location": "Not specified"
+      },
+      {
+        "name": "Stanford",
+        "location": "Not specified"
+      },
+      {
+        "name": "Carnegie Mellon",
+        "location": "Not specified"
+      },
+      {
+        "name": "Georgia Tech",
+        "location": "Not specified"
+      },
+      {
+        "name": "UC Berkeley",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "GRE"
+      }
+    ]
+  },
+  {
+    "title": "Doctor",
+    "description": "Diagnoses and treats illnesses, prescribes medications, and provides preventive care to patients.",
+    "skills": [
+      "Critical thinking",
+      "communication",
+      "empathy",
+      "attention to detail",
+      "stress management",
+      "manual dexterity"
+    ],
+    "averageSalary": "$208,000 - $350,000+",
+    "colleges": [
+      {
+        "name": "Harvard Medical School",
+        "location": "Not specified"
+      },
+      {
+        "name": "Johns Hopkins",
+        "location": "Not specified"
+      },
+      {
+        "name": "Stanford",
+        "location": "Not specified"
+      },
+      {
+        "name": "UCSF",
+        "location": "Not specified"
+      },
+      {
+        "name": "Mayo Clinic Medical School",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "MCAT"
+      }
+    ]
+  },
+  {
+    "title": "Teacher",
+    "description": "Instructs students, creates lesson plans, evaluates student performance, and manages classrooms.",
+    "skills": [
+      "Communication",
+      "patience",
+      "creativity",
+      "organization",
+      "adaptability",
+      "conflict resolution"
+    ],
+    "averageSalary": "$60,000 - $85,000",
+    "colleges": [
+      {
+        "name": "Harvard GSE",
+        "location": "Not specified"
+      },
+      {
+        "name": "Stanford GSE",
+        "location": "Not specified"
+      },
+      {
+        "name": "Columbia TC",
+        "location": "Not specified"
+      },
+      {
+        "name": "Vanderbilt Peabody",
+        "location": "Not specified"
+      },
+      {
+        "name": "UT Austin",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "Praxis"
+      },
+      {
+        "name": "GRE"
+      }
+    ]
+  },
+  {
+    "title": "Artist",
+    "description": "Creates original artwork using various media and techniques for aesthetic and commercial purposes.",
+    "skills": [
+      "Creativity",
+      "technical skills in chosen medium",
+      "attention to detail",
+      "marketing",
+      "business acumen",
+      "resilience"
+    ],
+    "averageSalary": "$49,000 - $85,000 (varies widely)",
+    "colleges": [
+      {
+        "name": "Rhode Island School of Design",
+        "location": "Not specified"
+      },
+      {
+        "name": "Yale",
+        "location": "Not specified"
+      },
+      {
+        "name": "School of the Art Institute of Chicago",
+        "location": "Not specified"
+      },
+      {
+        "name": "California Institute of the Arts",
+        "location": "Not specified"
+      },
+      {
+        "name": "Pratt Institute",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "Portfolio Review"
+      }
+    ]
+  },
+  {
+    "title": "Business Analyst",
+    "description": "Analyzes business needs and processes, identifies problems, and recommends solutions to improve efficiency and profitability.",
+    "skills": [
+      "Data analysis",
+      "critical thinking",
+      "communication",
+      "problem-solving",
+      "SQL",
+      "Excel",
+      "project management"
+    ],
+    "averageSalary": "$87,000 - $120,000",
+    "colleges": [
+      {
+        "name": "Wharton",
+        "location": "Not specified"
+      },
+      {
+        "name": "Harvard Business School",
+        "location": "Not specified"
+      },
+      {
+        "name": "Stanford GSB",
+        "location": "Not specified"
+      },
+      {
+        "name": "MIT Sloan",
+        "location": "Not specified"
+      },
+      {
+        "name": "London Business School",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "GMAT"
+      },
+      {
+        "name": "GRE"
+      }
+    ]
+  },
+  {
+    "title": "Environmental Scientist",
+    "description": "Studies, monitors, and protects the environment and human health by analyzing pollutants and developing conservation strategies.",
+    "skills": [
+      "Research",
+      "data analysis",
+      "fieldwork capabilities",
+      "critical thinking",
+      "communication",
+      "GIS software"
+    ],
+    "averageSalary": "$73,000 - $95,000",
+    "colleges": [
+      {
+        "name": "Yale",
+        "location": "Not specified"
+      },
+      {
+        "name": "UC Berkeley",
+        "location": "Not specified"
+      },
+      {
+        "name": "Stanford",
+        "location": "Not specified"
+      },
+      {
+        "name": "Duke Nicholas School",
+        "location": "Not specified"
+      },
+      {
+        "name": "University of Michigan",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "GRE"
+      }
+    ]
+  },
+  {
+    "title": "Mechanical Engineer",
+    "description": "Designs, develops, and tests mechanical devices, including tools, engines, and machines.",
+    "skills": [
+      "Mathematics",
+      "physics",
+      "CAD software",
+      "problem-solving",
+      "creativity",
+      "technical writing"
+    ],
+    "averageSalary": "$90,000 - $125,000",
+    "colleges": [
+      {
+        "name": "MIT",
+        "location": "Not specified"
+      },
+      {
+        "name": "Stanford",
+        "location": "Not specified"
+      },
+      {
+        "name": "Georgia Tech",
+        "location": "Not specified"
+      },
+      {
+        "name": "UC Berkeley",
+        "location": "Not specified"
+      },
+      {
+        "name": "University of Michigan",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "FE"
+      },
+      {
+        "name": "PE"
+      },
+      {
+        "name": "GRE"
+      }
+    ]
+  },
+  {
+    "title": "Psychologist",
+    "description": "Studies human behavior and mental processes, assesses and treats mental health issues, and conducts research.",
+    "skills": [
+      "Empathy",
+      "analytical thinking",
+      "communication",
+      "ethics",
+      "patience",
+      "research methods",
+      "statistics"
+    ],
+    "averageSalary": "$82,000 - $130,000",
+    "colleges": [
+      {
+        "name": "Stanford",
+        "location": "Not specified"
+      },
+      {
+        "name": "Harvard",
+        "location": "Not specified"
+      },
+      {
+        "name": "UC Berkeley",
+        "location": "Not specified"
+      },
+      {
+        "name": "Yale",
+        "location": "Not specified"
+      },
+      {
+        "name": "University of Michigan",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "GRE"
+      },
+      {
+        "name": "Psychology Subject Test"
+      }
+    ]
+  },
+  {
+    "title": "Financial Analyst",
+    "description": "Evaluates investment opportunities, studies business trends, and makes recommendations on financial decisions.",
+    "skills": [
+      "Financial modeling",
+      "Excel",
+      "data analysis",
+      "communication",
+      "attention to detail",
+      "problem-solving"
+    ],
+    "averageSalary": "$85,000 - $135,000",
+    "colleges": [
+      {
+        "name": "Wharton",
+        "location": "Not specified"
+      },
+      {
+        "name": "NYU Stern",
+        "location": "Not specified"
+      },
+      {
+        "name": "University of Chicago",
+        "location": "Not specified"
+      },
+      {
+        "name": "Columbia",
+        "location": "Not specified"
+      },
+      {
+        "name": "London School of Economics",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "GMAT"
+      },
+      {
+        "name": "CFA"
+      }
+    ]
+  },
+  {
+    "title": "Architect",
+    "description": "Designs buildings and structures, creates plans and drawings, and oversees construction projects.",
+    "skills": [
+      "Creativity",
+      "technical drawing",
+      "CAD software",
+      "mathematics",
+      "communication",
+      "problem-solving"
+    ],
+    "averageSalary": "$80,000 - $125,000",
+    "colleges": [
+      {
+        "name": "Harvard GSD",
+        "location": "Not specified"
+      },
+      {
+        "name": "Yale",
+        "location": "Not specified"
+      },
+      {
+        "name": "MIT",
+        "location": "Not specified"
+      },
+      {
+        "name": "Cornell",
+        "location": "Not specified"
+      },
+      {
+        "name": "Columbia GSAPP",
+        "location": "Not specified"
+      }
+    ],
+    "entranceExams": [
+      {
+        "name": "GRE"
+      },
+      {
+        "name": "Portfolio Review"
+      }
+    ]
+  }
+]

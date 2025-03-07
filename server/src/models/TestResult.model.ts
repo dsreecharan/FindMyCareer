@@ -15,11 +15,24 @@ interface Scores {
   [key: string]: number; // Allow additional score categories
 }
 
+interface CareerRecommendation {
+  careerTitle: string;
+  matchPercentage: number;
+  details?: {
+    description: string;
+    skills: string[];
+    averageSalary: string;
+    colleges: { name: string; location: string }[];
+    entranceExams: { name: string }[];
+  } | null;
+}
+
 export interface ITestResult extends Document {
   user: mongoose.Types.ObjectId;
   responses: QuestionResponse[];
   scores: Scores;
   recommendedCareers: mongoose.Types.ObjectId[];
+  recommendations?: CareerRecommendation[];
   date: Date;
   completed: boolean;
 }
@@ -74,6 +87,10 @@ const TestResultSchema: Schema = new Schema({
       ref: 'Career',
     },
   ],
+  recommendations: {
+    type: Array,
+    default: []
+  },
   date: {
     type: Date,
     default: Date.now,

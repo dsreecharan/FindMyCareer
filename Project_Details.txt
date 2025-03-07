@@ -1,0 +1,46 @@
+# FindMyCareer Project Details
+
+## Project Overview
+The FindMyCareer project is designed to help users discover career paths that align with their personality traits. It involves a personality test that evaluates users' preferences and provides career recommendations based on their scores.
+
+## Setup Instructions
+1. **Prerequisites**:
+   - macOS
+   - MongoDB
+   - Node.js
+   - npm
+
+2. **Environment Configuration**:
+   - Set up environment variables using the provided `.env.example` files for both the server and the Next.js application.
+
+3. **Running the Project**:
+   - Use the `start.sh` script to start both the backend and frontend applications.
+   - Ensure MongoDB is running and accessible.
+
+## Scripts
+### start.sh
+- Starts the backend and frontend servers.
+- Checks MongoDB status and opens the application in a browser.
+
+### stop.sh
+- Stops the backend and frontend servers.
+- Optionally stops MongoDB with user confirmation.
+
+## Database Structure
+- **Questions**: Each question has multiple options with scores for analytical, creative, social, and structured traits.
+- **Test Results**: Stores user responses, scores, and recommended careers.
+
+## Code Changes and Fixes
+- Updated the TestResult model to use `structured` consistently.
+- Fixed the question controller to use `structured` instead of `practical`.
+- Created properly structured questions in the database.
+- Added error handling in the frontend to prevent "NaN%" from displaying.
+
+## Troubleshooting
+- Ensure MongoDB is running if the application fails to connect.
+- Check for port conflicts if servers do not start.
+- Verify environment variables are correctly set.
+
+## Additional Notes
+- The project includes a comprehensive README and LICENSE for documentation and legal purposes.
+- The `SCRIPTS.md` file provides detailed instructions for using the startup and shutdown scripts. 
