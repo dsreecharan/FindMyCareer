@@ -1,0 +1,8 @@
+{
+  "name": "FindMyCareer",
+  "description": "Comprehensive career discovery platform for Grade 9-12 high school students featuring psychological & scenario tests, career matching, college finders, and entrance exam blueprints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

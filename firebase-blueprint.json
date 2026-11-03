@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Student user profile information",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "grade": { "type": "string" },
+        "dominantStream": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email"]
+    },
+    "TestResult": {
+      "title": "TestResult",
+      "description": "Scenario and psychological assessment results for a student",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "completedAt": { "type": "string" },
+        "dominantStream": { "type": "string" },
+        "scores": { "type": "object" },
+        "topCareer": { "type": "object" },
+        "streamName": { "type": "string" }
+      },
+      "required": ["userId", "dominantStream", "completedAt"]
+    },
+    "SavedCareer": {
+      "title": "SavedCareer",
+      "description": "Career bookmarked by the student",
+      "type": "object",
+      "properties": {
+        "careerId": { "type": "string" },
+        "title": { "type": "string" },
+        "streamId": { "type": "string" },
+        "savedAt": { "type": "string" }
+      },
+      "required": ["careerId", "title"]
+    },
+    "RoadmapProgress": {
+      "title": "RoadmapProgress",
+      "description": "Student roadmap milestone and skill tracking progress",
+      "type": "object",
+      "properties": {
+        "careerId": { "type": "string" },
+        "completedMilestoneIds": { "type": "array" },
+        "completedSkillIds": { "type": "array" },
+        "currentGrade": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["careerId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents keyed by Auth UID"
+    },
+    "/users/{userId}/testResults/{resultId}": {
+      "schema": "TestResult",
+      "description": "Student assessment result history"
+    },
+    "/users/{userId}/savedCareers/{careerId}": {
+      "schema": "SavedCareer",
+      "description": "Student saved/bookmarked careers"
+    },
+    "/users/{userId}/roadmapProgress/{careerId}": {
+      "schema": "RoadmapProgress",
+      "description": "Student milestone checklist and skill tracking"
+    }
+  }
+}
